@@ -65,9 +65,9 @@ public class AppLibros {
 				String password = dbUri.getUserInfo().split(":")[1];
 				//javax.persistence.jdbc.url=jdbc:postgresql://localhost/dblibros
 				value = "jdbc:mysql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();// + "?sslmode=require";
-				configOverrides.put("javax__persistence__jdbc__url", jdbc:postgresql://dpg-cl6jb0c72pts73bijjqg-a.oregon-postgres.render.com/jfterraza-dds);
-				configOverrides.put("javax__persistence__jdbc__user", jfterraza_dds_user);
-				configOverrides.put("javax__persistence__jdbc__password", vQUydAI153uZXEhrtUfwa4I6MIjGSRvK);
+				configOverrides.put("javax__persistence__jdbc__url", value);
+				configOverrides.put("javax__persistence__jdbc__user", username);
+				configOverrides.put("javax__persistence__jdbc__password", password);
 				configOverrides.put("javax__persistence__jdbc__driver", "com.mysql.jdbc.Driver");
 				
 				//  configOverrides.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
