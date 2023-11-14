@@ -1,7 +1,8 @@
 version: 2.1
 orbs:
   maven: circleci/maven@1.4.1
-  docker: circleci/docker@1.5.0executors:
+  docker: circleci/docker@1.5.0
+executors:
   docker-publisher:
    docker:
    - image: circleci/node:latest
@@ -10,7 +11,8 @@ orbs:
        password: $DOCKERHUB_PASSWORD
   java17:
     docker:
-      - image: 'cimg/openjdk:17.0'jobs:
+      - image: 'cimg/openjdk:17.0'
+jobs:
   publishLatestToHub:
      executor: docker-publisher
      steps:
@@ -29,7 +31,10 @@ orbs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"workflows:
+          command: |
+            echo "Hello, World!"
+            echo "$HOME"
+workflows:
   say-hello-workflow:
     jobs:
       - say-hello
@@ -38,6 +43,7 @@ orbs:
       - maven/test:
           command: '-X compile test'
           executor: java17
+          
   deploy:
     jobs:
       - publishLatestToHub
